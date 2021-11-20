@@ -19,7 +19,7 @@ class TuplesFeature extends Feature {
       And("t should be a Point")
       And("t should not be a Vector")
       t match {
-        case RTPoint(_, _, _) => assert(true)
+        case RTPoint(_, _, _)  => assert(true)
         case RTVector(_, _, _) => assert(false)
       }
     }
@@ -41,7 +41,7 @@ class TuplesFeature extends Feature {
       And("t should not be a Point")
       And("t should be a Vector")
       t match {
-        case RTPoint(_, _, _) => assert(false)
+        case RTPoint(_, _, _)  => assert(false)
         case RTVector(_, _, _) => assert(true)
       }
     }

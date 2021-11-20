@@ -5,5 +5,7 @@
 .vscode
 .bloop
 target
-project
+.bloop
+project/target
+project/project
 .DS_Store
