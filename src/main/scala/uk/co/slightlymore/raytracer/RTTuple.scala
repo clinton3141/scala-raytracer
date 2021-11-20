@@ -8,9 +8,9 @@ trait RTTuple {
   val w: Double
 }
 
-class RTPoint(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
+case class RTPoint(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
 
-class RTVector(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
+case class RTVector(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
 
 object RTTuple {
   def apply(x: Double, y: Double, z: Double, w: Double) = {

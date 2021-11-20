@@ -23,10 +23,11 @@ class TuplesFeature extends Feature {
       assert(t.w == w)
 
       And("a should be a Point")
-      assert(t.isInstanceOf[RTPoint])
-
       And("a should not be a Vector")
-      assert(!t.isInstanceOf[RTVector])
+      t match {
+        case RTPoint(_, _, _, _) => assert(true)
+        case RTVector(_, _, _, _) => assert(false)
+      }
     }
   }
 }
