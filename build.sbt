@@ -16,4 +16,4 @@ libraryDependencies ++= Seq (
 enablePlugins(CucumberPlugin)
 
 CucumberPlugin.monochrome := false
-CucumberPlugin.glues := List("uk.co.slightlymore.sbt")
+CucumberPlugin.glues := List("uk.co.slightlymore.raytracer")
