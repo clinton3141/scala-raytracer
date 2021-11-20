@@ -8,12 +8,16 @@ trait RTTuple {
   val w: Double
 }
 
-case class RTPoint(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
+case class RTPoint(val x: Double, val y: Double, val z: Double) extends RTTuple {
+  val w = 1.0
+}
 
-case class RTVector(val x: Double, val y: Double, val z: Double, val w: Double) extends RTTuple {}
+case class RTVector(val x: Double, val y: Double, val z: Double) extends RTTuple {
+  val w = 0.0
+}
 
 object RTTuple {
   def apply(x: Double, y: Double, z: Double, w: Double) = {
-    if (w == 0) new RTVector(x, y, z, w) else new RTPoint(x, y, z, w)
+    if (w == 0) new RTVector(x, y, z) else new RTPoint(x, y, z)
   }
 }
