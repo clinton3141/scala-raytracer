@@ -6,6 +6,12 @@ trait RTTuple {
   val y: Double
   val z: Double
   val w: Double
+
+  def ==(that: RTTuple): Boolean =
+    Utils.equals(this.x, that.x) &&
+      Utils.equals(this.y, that.y) &&
+      Utils.equals(this.z, that.z) &&
+      Utils.equals(this.w, that.w)
 }
 
 case class RTPoint(val x: Double, val y: Double, val z: Double) extends RTTuple {

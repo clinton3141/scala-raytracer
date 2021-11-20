@@ -51,7 +51,7 @@ class TuplesFeature extends Feature {
       val p = RTPoint(4, -4, 3)
 
       Then("p = RTTuple(4, -4, 3, 1)")
-      assert(p equals RTTuple(4, -4, 3, 1))
+      assert(p == RTTuple(4, -4, 3, 1))
     }
 
     Scenario("RTVector() creates tuples with w=0") {
@@ -59,7 +59,7 @@ class TuplesFeature extends Feature {
       val v = RTVector(4, -4, 3)
 
       Then("v = RTTuple(4, -4, 3, 1)")
-      assert(v equals RTTuple(4, -4, 3, 0))
+      assert(v == RTTuple(4, -4, 3, 0))
     }
   }
 }
