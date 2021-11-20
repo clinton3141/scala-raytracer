@@ -76,4 +76,46 @@ class TuplesFeature extends Feature {
       assert(a3 == RTTuple(1, 1, 6, 1))
     }
   }
+
+  Scenario("Subtracting two points") {
+    Given("p1 <- RTPoint(3, 2, 1")
+    val p1 = RTPoint(3, 2, 1)
+
+    And("p2 <- RTPoint(5, 6, 7)")
+    val p2 = RTPoint(5, 6, 7)
+
+    When("p3 <- p1 - p2")
+    val p3 = p1 - p2
+
+    Then("p3 = RTVector(-2, -4, -6)")
+    assert(p3 == RTVector(-2, -4, -6))
+  }
+
+  Scenario("Subtracting a vector from a point") {
+    Given("p <- RTPoint(3, 2, 1)")
+    val p = RTPoint(3, 2, 1)
+
+    And("v <- RTVector(5, 6, 7)")
+    val v = RTVector(5, 6, 7)
+
+    When("p2 = p - v")
+    val p2 = p - v
+
+    Then("p2 = RTPoint(-2, -4, -6)")
+    assert(p2 == RTPoint(-2, -4, -6))
+  }
+
+  Scenario("Subtracting two vectors") {
+    Given("v1 <- RTVector(3, 2, 1)")
+    val v1 = RTVector(3, 2, 1)
+
+    And("v2 <- RTVector(5, 6, 7)")
+    val v2 = RTVector(5, 6, 7)
+
+    When("v3 = v1 - v2")
+    val v3 = v1 - v2
+
+    Then("v3 = RTVector(-2, -4, -6)")
+    assert(v3 == RTVector(-2, -4, -6))
+  }
 }
