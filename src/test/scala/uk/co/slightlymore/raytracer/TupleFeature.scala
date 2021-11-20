@@ -61,5 +61,19 @@ class TuplesFeature extends Feature {
       Then("v = RTTuple(4, -4, 3, 1)")
       assert(v == RTTuple(4, -4, 3, 0))
     }
+
+    Scenario("Adding two tuples") {
+      Given("a1 <- RTTuple(3, -2, 5, 1)")
+      val a1 = RTTuple(3, -2, 5, 1)
+
+      And("a2 <- RTTuple(-2, 3, 1, 0)")
+      val a2 = RTTuple(-2, 3, 1, 0)
+
+      When("a3 = a1 + a2")
+      val a3 = a1 + a2
+
+      Then("a3 = RTTuple(1, 1, 6, 1)")
+      assert(a3 == RTTuple(1, 1, 6, 1))
+    }
   }
 }

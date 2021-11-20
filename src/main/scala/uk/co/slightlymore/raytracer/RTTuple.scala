@@ -12,6 +12,9 @@ trait RTTuple {
       Utils.equals(this.y, that.y) &&
       Utils.equals(this.z, that.z) &&
       Utils.equals(this.w, that.w)
+
+  def +(that: RTTuple): RTTuple =
+    RTTuple(this.x + that.x, this.y + that.y, this.z + that.z, this.w + that.w)
 }
 
 case class RTPoint(val x: Double, val y: Double, val z: Double) extends RTTuple {
