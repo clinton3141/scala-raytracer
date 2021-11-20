@@ -9,4 +9,4 @@ The tests in this project are written as Cucumber BDD test. Yeah I know -  that 
 To run them:
 
 * `sbt compile`
-* `sbt cucmber`
+* `sbt cucumber`
