@@ -75,90 +75,90 @@ class TuplesFeature extends Feature {
       Then("a3 = RTTuple(1, 1, 6, 1)")
       assert(a3 == RTTuple(1, 1, 6, 1))
     }
-  }
 
-  Scenario("Subtracting two points") {
-    Given("p1 <- RTPoint(3, 2, 1")
-    val p1 = RTPoint(3, 2, 1)
+    Scenario("Subtracting two points") {
+      Given("p1 <- RTPoint(3, 2, 1")
+      val p1 = RTPoint(3, 2, 1)
 
-    And("p2 <- RTPoint(5, 6, 7)")
-    val p2 = RTPoint(5, 6, 7)
+      And("p2 <- RTPoint(5, 6, 7)")
+      val p2 = RTPoint(5, 6, 7)
 
-    When("p3 <- p1 - p2")
-    val p3 = p1 - p2
+      When("p3 <- p1 - p2")
+      val p3 = p1 - p2
 
-    Then("p3 = RTVector(-2, -4, -6)")
-    assert(p3 == RTVector(-2, -4, -6))
-  }
+      Then("p3 = RTVector(-2, -4, -6)")
+      assert(p3 == RTVector(-2, -4, -6))
+    }
 
-  Scenario("Subtracting a vector from a point") {
-    Given("p <- RTPoint(3, 2, 1)")
-    val p = RTPoint(3, 2, 1)
+    Scenario("Subtracting a vector from a point") {
+      Given("p <- RTPoint(3, 2, 1)")
+      val p = RTPoint(3, 2, 1)
 
-    And("v <- RTVector(5, 6, 7)")
-    val v = RTVector(5, 6, 7)
+      And("v <- RTVector(5, 6, 7)")
+      val v = RTVector(5, 6, 7)
 
-    When("p2 <- p - v")
-    val p2 = p - v
+      When("p2 <- p - v")
+      val p2 = p - v
 
-    Then("p2 = RTPoint(-2, -4, -6)")
-    assert(p2 == RTPoint(-2, -4, -6))
-  }
+      Then("p2 = RTPoint(-2, -4, -6)")
+      assert(p2 == RTPoint(-2, -4, -6))
+    }
 
-  Scenario("Subtracting two vectors") {
-    Given("v1 <- RTVector(3, 2, 1)")
-    val v1 = RTVector(3, 2, 1)
+    Scenario("Subtracting two vectors") {
+      Given("v1 <- RTVector(3, 2, 1)")
+      val v1 = RTVector(3, 2, 1)
 
-    And("v2 <- RTVector(5, 6, 7)")
-    val v2 = RTVector(5, 6, 7)
+      And("v2 <- RTVector(5, 6, 7)")
+      val v2 = RTVector(5, 6, 7)
 
-    When("v3 <- v1 - v2")
-    val v3 = v1 - v2
+      When("v3 <- v1 - v2")
+      val v3 = v1 - v2
 
-    Then("v3 = RTVector(-2, -4, -6)")
-    assert(v3 == RTVector(-2, -4, -6))
-  }
+      Then("v3 = RTVector(-2, -4, -6)")
+      assert(v3 == RTVector(-2, -4, -6))
+    }
 
-  Scenario("Subtracting a vector from the zero vector") {
-    Given("zero <- RTVector(0, 0, 0)")
-    val zero = RTVector(0, 0, 0)
+    Scenario("Subtracting a vector from the zero vector") {
+      Given("zero <- RTVector(0, 0, 0)")
+      val zero = RTVector(0, 0, 0)
 
-    And("v <- RTVector(1, -2, 3)")
-    val v = RTVector(1, -2, 3)
+      And("v <- RTVector(1, -2, 3)")
+      val v = RTVector(1, -2, 3)
 
-    When("v2 <- zero - v")
-    val v2 = zero - v
+      When("v2 <- zero - v")
+      val v2 = zero - v
 
-    Then("v2 = RTVector(-1, 2, -3)")
-    assert(v2 == RTVector(-1, 2, -3))
-  }
+      Then("v2 = RTVector(-1, 2, -3)")
+      assert(v2 == RTVector(-1, 2, -3))
+    }
 
-  Scenario("Negating a tuple") {
-    Given("a <- RTTuple(1, -2, 3, 4)")
-    val a = RTTuple(1, -2, 3, -4)
+    Scenario("Negating a tuple") {
+      Given("a <- RTTuple(1, -2, 3, 4)")
+      val a = RTTuple(1, -2, 3, -4)
 
-    When("b <- -a")
-    val b = -a
+      When("b <- -a")
+      val b = -a
 
-    Then("b = RTTuple(-1, 2, -3, 4)")
-    assert(b == RTTuple(-1, 2, -3, 4))
-  }
+      Then("b = RTTuple(-1, 2, -3, 4)")
+      assert(b == RTTuple(-1, 2, -3, 4))
+    }
 
-  Scenario("Multiplying a tuple by a scalar") {
-    Given("a <- RTTuple(1, -2, 3, -4)")
-    val a = RTTuple(1, -2, 3, -4)
-    When("b <- a * 3.5")
-    val b = a * 3.5
-    Then("b = RTTuple(3.5, -7, 10.5, -14)")
-    assert(b == RTTuple(3.5, -7, 10.5, -14))
-  }
+    Scenario("Multiplying a tuple by a scalar") {
+      Given("a <- RTTuple(1, -2, 3, -4)")
+      val a = RTTuple(1, -2, 3, -4)
+      When("b <- a * 3.5")
+      val b = a * 3.5
+      Then("b = RTTuple(3.5, -7, 10.5, -14)")
+      assert(b == RTTuple(3.5, -7, 10.5, -14))
+    }
 
-  Scenario("Dividing a tuple by a scalar") {
-    Given("a <- RTTuple(1, -2, 3, -4)")
-    val a = RTTuple(1, -2, 3, -4)
-    When("b <- a / 2")
-    val b = a / 2
-    Then("b = RTTuple(0.5, -1, 1.5, -2)")
-    assert(b == RTTuple(0.5, -1, 1.5, -2))
+    Scenario("Dividing a tuple by a scalar") {
+      Given("a <- RTTuple(1, -2, 3, -4)")
+      val a = RTTuple(1, -2, 3, -4)
+      When("b <- a / 2")
+      val b = a / 2
+      Then("b = RTTuple(0.5, -1, 1.5, -2)")
+      assert(b == RTTuple(0.5, -1, 1.5, -2))
+    }
   }
 }
