@@ -143,4 +143,22 @@ class TuplesFeature extends Feature {
     Then("b = RTTuple(-1, 2, -3, 4)")
     assert(b == RTTuple(-1, 2, -3, 4))
   }
+
+  Scenario("Multiplying a tuple by a scalar") {
+    Given("a <- RTTuple(1, -2, 3, -4)")
+    val a = RTTuple(1, -2, 3, -4)
+    When("b <- a * 3.5")
+    val b = a * 3.5
+    Then("b = RTTuple(3.5, -7, 10.5, -14)")
+    assert(b == RTTuple(3.5, -7, 10.5, -14))
+  }
+
+  Scenario("Dividing a tuple by a scalar") {
+    Given("a <- RTTuple(1, -2, 3, -4)")
+    val a = RTTuple(1, -2, 3, -4)
+    When("b <- a / 2")
+    val b = a / 2
+    Then("b = RTTuple(0.5, -1, 1.5, -2)")
+    assert(b == RTTuple(0.5, -1, 1.5, -2))
+  }
 }

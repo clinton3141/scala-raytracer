@@ -19,6 +19,12 @@ trait RTTuple {
   def -(that: RTTuple): RTTuple =
     RTTuple(this.x - that.x, this.y - that.y, this.z - that.z, this.w - that.w)
 
+  def *(s: Double): RTTuple =
+    RTTuple(this.x * s, this.y * s, this.z * s, this.w * s)
+
+  def /(s: Double): RTTuple =
+    RTTuple(this.x / s, this.y / s, this.z / s, this.w / s)
+
   def unary_-(): RTTuple =
     RTTuple(-this.x, -this.y, -this.z, -this.w)
 }
