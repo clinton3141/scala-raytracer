@@ -42,6 +42,14 @@ case class RTVector(val x: Double, val y: Double, val z: Double) extends RTTuple
     val mag = this.magnitude
     RTVector(this.x / mag, this.y / mag, this.z / mag)
   }
+
+  def dot(that: RTVector) = this.x * that.x + this.y * that.y + this.z * that.z
+
+  def cross(that: RTVector) = RTVector(
+    this.y * that.z - this.z * that.y,
+    this.z * that.x - this.x * that.z,
+    this.x * that.y - this.y * that.x
+  )
 }
 
 object RTTuple {

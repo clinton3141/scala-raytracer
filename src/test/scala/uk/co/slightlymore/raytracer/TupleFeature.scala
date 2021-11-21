@@ -233,5 +233,31 @@ class TuplesFeature extends Feature {
       assert(Utils.equals(n.magnitude, 1))
     }
 
+    Scenario("The dot product of two vectors") {
+      Given("a <- RTVector(1, 2, 3)")
+      val a = RTVector(1, 2, 3)
+      And("b <- RTVector(2, 3, 4)")
+      val b = RTVector(2, 3, 4)
+      When("c <- a dot b")
+      val c = a dot b
+      Then("c = 20")
+      assert(c == 20)
+    }
+
+    Scenario("The cross product of two vectors") {
+      Given("a <- RTVector(1, 2, 3)")
+      val a = RTVector(1, 2, 3)
+      And("b <- RTVector(2, 3, 4)")
+      val b = RTVector(2, 3, 4)
+      When("c <- a cross b")
+      val c = a cross b
+      And("d <- b cross a")
+      val d = b cross a
+      Then("c = RTVector(-1, 2, -1")
+      assert(c == RTVector(-1, 2, -1))
+      Then("d = RTVector(1, -2 ,1)")
+      assert(d == RTVector(1, -2, 1))
+    }
+
   }
 }
