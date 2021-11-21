@@ -160,5 +160,78 @@ class TuplesFeature extends Feature {
       Then("b = RTTuple(0.5, -1, 1.5, -2)")
       assert(b == RTTuple(0.5, -1, 1.5, -2))
     }
+
+    Scenario("Computing the magnitude of RTVector(1, 0, 0)") {
+      Given("v <- RTVector(1, 0, 0)")
+      val v = RTVector(1, 0, 0)
+      When("m <- v.magnitude")
+      val m = v.magnitude
+      Then("m = 1")
+      assert(m == 1)
+    }
+
+    Scenario("Computing the magnitude of RTVector(0, 1, 0)") {
+      Given("v <- RTVector(0, 1, 0)")
+      val v = RTVector(0, 1, 0)
+      When("m <- v.magnitude")
+      val m = v.magnitude
+      Then("m = 1")
+      assert(m == 1)
+    }
+
+    Scenario("Computing the magnitude of RTVector(0, 0, 1)") {
+      Given("v <- RTVector(0, 0, 1)")
+      val v = RTVector(0, 0, 1)
+      When("m <- v.magnitude")
+      val m = v.magnitude
+      Then("m = 1")
+      assert(m == 1)
+    }
+
+    Scenario("Computing the magnitude of RTVector(1, 2, 3)") {
+      Given("v <- RTVector(1, 2, 3)")
+      val v = RTVector(1, 2, 3)
+      When("m <- v.magnitude")
+      val m = v.magnitude
+      Then("m = √14")
+      assert(Utils.equals(m, math.sqrt(14)))
+    }
+
+    Scenario("Computing the magnitude of RTVector(-1, -2, -3)") {
+      Given("v <- RTVector(-1, -2, -3)")
+      val v = RTVector(-1, -2, -3)
+      When("m <- v.magnitude")
+      val m = v.magnitude
+      Then("m = √14")
+      assert(Utils.equals(m, math.sqrt(14)))
+    }
+
+    Scenario("Normalising RTVector(4, 0, 0)") {
+      Given("v <- RTVector(4, 0, 0)")
+      val v = RTVector(4, 0, 0)
+      When("n <- v.normalise")
+      val n = v.normalise
+      Then("n = RTVector(1, 0, 0)")
+      assert(n == RTVector(1, 0, 0))
+    }
+
+    Scenario("Normalising vector(1, 2, 3)") {
+      Given("v <- RTVector(1, 2, 3")
+      val v = RTVector(1, 2, 3)
+      When("n <- v.normalise")
+      val n = v.normalise
+      Then("n = RTVector(1/√14, 2/√14, 3/√14)")
+      assert(n == RTVector(1 / math.sqrt(14), 2 / math.sqrt(14), 3 / math.sqrt(14)))
+    }
+
+    Scenario("The magnitude of a normalised vector") {
+      Given("v <- RTVector(1, 2, 3)")
+      val v = RTVector(1, 2, 3)
+      When("n <- v.normalise")
+      val n = v.normalise
+      Then("n.magnitude = 1")
+      assert(Utils.equals(n.magnitude, 1))
+    }
+
   }
 }

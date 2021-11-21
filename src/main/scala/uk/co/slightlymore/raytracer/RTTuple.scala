@@ -35,6 +35,13 @@ case class RTPoint(val x: Double, val y: Double, val z: Double) extends RTTuple 
 
 case class RTVector(val x: Double, val y: Double, val z: Double) extends RTTuple {
   val w = 0.0
+
+  def magnitude = math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w)
+
+  def normalise = {
+    val mag = this.magnitude
+    RTVector(this.x / mag, this.y / mag, this.z / mag)
+  }
 }
 
 object RTTuple {
