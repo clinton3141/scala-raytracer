@@ -69,7 +69,7 @@ class TuplesFeature extends Feature {
       And("a2 <- RTTuple(-2, 3, 1, 0)")
       val a2 = RTTuple(-2, 3, 1, 0)
 
-      When("a3 = a1 + a2")
+      When("a3 <- a1 + a2")
       val a3 = a1 + a2
 
       Then("a3 = RTTuple(1, 1, 6, 1)")
@@ -98,7 +98,7 @@ class TuplesFeature extends Feature {
     And("v <- RTVector(5, 6, 7)")
     val v = RTVector(5, 6, 7)
 
-    When("p2 = p - v")
+    When("p2 <- p - v")
     val p2 = p - v
 
     Then("p2 = RTPoint(-2, -4, -6)")
@@ -112,10 +112,35 @@ class TuplesFeature extends Feature {
     And("v2 <- RTVector(5, 6, 7)")
     val v2 = RTVector(5, 6, 7)
 
-    When("v3 = v1 - v2")
+    When("v3 <- v1 - v2")
     val v3 = v1 - v2
 
     Then("v3 = RTVector(-2, -4, -6)")
     assert(v3 == RTVector(-2, -4, -6))
+  }
+
+  Scenario("Subtracting a vector from the zero vector") {
+    Given("zero <- RTVector(0, 0, 0)")
+    val zero = RTVector(0, 0, 0)
+
+    And("v <- RTVector(1, -2, 3)")
+    val v = RTVector(1, -2, 3)
+
+    When("v2 <- zero - v")
+    val v2 = zero - v
+
+    Then("v2 = RTVector(-1, 2, -3)")
+    assert(v2 == RTVector(-1, 2, -3))
+  }
+
+  Scenario("Negating a tuple") {
+    Given("a <- RTTuple(1, -2, 3, 4)")
+    val a = RTTuple(1, -2, 3, -4)
+
+    When("b <- -a")
+    val b = -a
+
+    Then("b = RTTuple(-1, 2, -3, 4)")
+    assert(b == RTTuple(-1, 2, -3, 4))
   }
 }
