@@ -13,20 +13,24 @@ trait RTTuple {
       Utils.equals(this.z, that.z) &&
       Utils.equals(this.w, that.w)
 
-  def +(that: RTTuple): RTTuple =
-    RTTuple(this.x + that.x, this.y + that.y, this.z + that.z, this.w + that.w)
+  def +(that: RTTuple): RTTuple = binary_operator(_ + _, that)
 
-  def -(that: RTTuple): RTTuple =
-    RTTuple(this.x - that.x, this.y - that.y, this.z - that.z, this.w - that.w)
+  def -(that: RTTuple): RTTuple = binary_operator(_ - _, that)
 
-  def *(s: Double): RTTuple =
-    RTTuple(this.x * s, this.y * s, this.z * s, this.w * s)
+  def *(s: Double): RTTuple = binary_operator(_ * _, RTTuple(s, s, s, s))
 
-  def /(s: Double): RTTuple =
-    RTTuple(this.x / s, this.y / s, this.z / s, this.w / s)
+  def /(s: Double): RTTuple = binary_operator(_ / _, RTTuple(s, s, s, s))
 
   def unary_-(): RTTuple =
     RTTuple(-this.x, -this.y, -this.z, -this.w)
+
+  protected def binary_operator(op: (Double, Double) => Double, that: RTTuple) =
+    RTTuple(
+      op(this.x, that.x),
+      op(this.y, that.y),
+      op(this.z, that.z),
+      op(this.w, that.w)
+    )
 }
 
 case class RTPoint(val x: Double, val y: Double, val z: Double) extends RTTuple {
